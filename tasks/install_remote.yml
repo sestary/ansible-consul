@@ -62,7 +62,8 @@
   tags: installation
 
 - name: Daemon reload systemd in case the binaries upgraded
-  command: systemctl daemon-reload
+  systemd:
+    daemon_reload: yes
   become: true
   notify: restart consul
   when:
